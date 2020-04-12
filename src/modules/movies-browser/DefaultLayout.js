@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import {
-  Row, Col, Navbar, FormControl, Form, InputGroup, Card, ListGroup, ListGroupItem,
-  Container,
-
-} from 'react-bootstrap';
+import React from 'react';
+import { Container, } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css';
 import Navigation from '../shared/components/Navigation';
-import MovieCard from './components/MovieCard';
+import MovieList from './components/MovieList';
 
 class DefaultLayout extends React.Component {
 
@@ -14,7 +10,7 @@ class DefaultLayout extends React.Component {
     return (
       <Container>
         <Navigation />
-        <MovieCard />
+        <MovieList />
       </Container>
     );
   }

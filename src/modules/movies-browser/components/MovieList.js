@@ -1,25 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import MovieBrowser from '../../../services/MovieBrowser';
 class MovieList extends Component {
     constructor(props) {
         super(props);
         this.state = {
         };
     }
-
-    componentWillMount() {
-    }
-
     componentDidMount() {
         this.loadDataForPage()
     }
-    
+
     loadDataForPage() {
+        let movies = MovieBrowser.getTopMovies(1);
     }
 
     render() {
         return (
             <div>
-              Movie List 
+                Movie List
             </div>
         );
     }

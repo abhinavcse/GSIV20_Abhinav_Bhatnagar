@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Row, Col, Navbar, FormControl, Form, InputGroup, Card, ListGroup, ListGroupItem,
-  Container,
+  Row, Col, Navbar, FormControl, Form,
 
 } from 'react-bootstrap';
 
@@ -22,7 +21,7 @@ class Navigation extends React.Component {
               </Col>
               <Col style={{ textAlign: 'right' }} xs="2" >
                 <a className="nav-link" href="#">
-                  <span class="fa fa-home fa-2x"></span>
+                  <span className="fa fa-home fa-2x"></span>
                 </a>
               </Col>
             </Row>
