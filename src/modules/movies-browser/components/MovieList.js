@@ -1,26 +1,31 @@
-import React, { Component } from 'react';
-import MovieBrowser from '../../../services/MovieBrowser';
-class MovieList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-    componentDidMount() {
-        this.loadDataForPage()
-    }
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import MovieCard from './MovieCard';
+import * as movieHelpers from '../../shared/movie-browser.helpers';
 
-    loadDataForPage() {
-        let movies = MovieBrowser.getTopMovies(1);
-    }
+const styles = {
+    grid: {
+        paddingTop: '10px',
+        paddingBottom: '10px',
+    },
+};
 
-    render() {
-        return (
-            <div>
-                Movie List
-            </div>
-        );
+const MovieListComponent = ({ movies }) => {
+    let moviesData = [];
+    if (movies) {
+        moviesData = movieHelpers.getMoviesList(movies.results);
     }
+    let movieColumns = moviesData ? moviesData.map(movie => (
+        <Col xs="3" style={styles.grid} >
+            <MovieCard movie={movie} />
+        </Col>
+    )) : null;
+
+    return (
+        <Row>
+            {movieColumns}
+        </Row>
+    );
 }
 
-export default MovieList;
+export default MovieListComponent;
