@@ -43,7 +43,6 @@ class DefaultLayout extends React.Component {
   render() {
     let movies = {};
     if (this.state.currentMovies) {
-      console.log(this.state.currentMovies)
       movies = this.state.currentMovies;
     } else {
       movies = this.props.topMovies;
