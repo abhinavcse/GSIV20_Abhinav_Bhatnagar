@@ -15,14 +15,14 @@ const MovieListComponent = ({ movies }) => {
     if (movies) {
         moviesData = movieHelpers.getMoviesList(movies.results);
     }
-    let movieColumns = moviesData ? moviesData.map(movie => (
-        <Col xs="3" style={styles.grid} >
+    let movieColumns = moviesData ? moviesData.map((movie, idx) => (
+        <Col xs="3" key={idx} style={styles.grid} >
             <MovieCard movie={movie} />
         </Col>
     )) : null;
 
     return (
-        <Row>
+        <Row className="float-left">
             {movieColumns}
         </Row>
     );

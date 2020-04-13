@@ -1,18 +1,17 @@
 import React from 'react';
-import { Container, } from 'react-bootstrap';
-import 'font-awesome/css/font-awesome.min.css';
-import Navigation from '../shared/components/Navigation';
 import MovieList from './components/MovieList';
 import * as scrolling from '../shared/scrolling';
 import { connect } from 'react-redux';
 import * as movieActions from '../../redux/movie-browser.actions';
+import Navigation from '../shared/components/Navigation';
+import { Container, } from 'react-bootstrap';
 
 class DefaultLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentPage: 1,
-      currentMovies: []
+      currentMovies: ''
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -37,14 +36,24 @@ class DefaultLayout extends React.Component {
       }
     }
   }
+  updateList(list) {
+    this.setState({ currentMovies: list });
+  }
 
   render() {
-    const movies = this.props.topMovies;
+    let movies = {};
+    if (this.state.currentMovies) {
+      movies = this.state.currentMovies;
+    } else {
+      movies = this.props.topMovies;
+    }
     return (
-      <Container>
-        <Navigation />
+      <Container >
+        <Navigation homeRoute='true' data={{
+          updateList: this.updateList.bind(this)
+        }} />
         <MovieList movies={movies} />
-      </Container>
+      </Container >
     );
   }
 }

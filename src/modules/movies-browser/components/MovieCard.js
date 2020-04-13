@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Row, Col, Navbar, FormControl, Form, InputGroup, Card, ListGroup, ListGroupItem,
     Container,
@@ -21,12 +22,15 @@ class MovieCard extends React.Component {
     render() {
         let movieData = this.props.movie;
         let movieOverview = this.truncate(movieData.overview);
+        const movieDetailsLink = `/movie/${movieData.id}`;
         return (
             <Card style={{ height: '500px' }} >
-                <Card.Img style={{ height: '300px' }}
-                    variant="top" src={movieData.poster_path} />
+                <Link to={movieDetailsLink}>
+                    <Card.Img style={{ height: '300px' }}
+                        variant="top" src={movieData.poster_path} />
+                </Link>
                 <Card.Body>
-                    <Row >
+                    <Row className="float-left" >
                         <Col xs="8">
                             <strong>{movieData.title} </strong>
                         </Col>
