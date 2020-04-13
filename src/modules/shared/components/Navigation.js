@@ -35,6 +35,7 @@ class Navigation extends React.Component {
                         }}
                         onKeyUp={(event) => {
                           let query = event.target.value;
+                          if(query != ''){
                           Api.getMovies('/search/movie', {
                             page,
                             query
@@ -44,6 +45,9 @@ class Navigation extends React.Component {
                               searchTerm: res.data,
                             })
                           });
+                        }else{
+                          this.props.data.updateList(null);
+                        }
                         }} placeholder="Search" />
                     </div>
                     : <a className="navbar-brand" href="#">{this.props.title} Details</a>

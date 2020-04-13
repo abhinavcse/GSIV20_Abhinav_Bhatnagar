@@ -22,7 +22,7 @@ const MovieListComponent = ({ movies }) => {
     )) : null;
 
     return (
-        <Row className="float-left">
+        <Row >
             {movieColumns}
         </Row>
     );
