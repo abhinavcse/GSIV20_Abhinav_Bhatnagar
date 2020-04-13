@@ -16,7 +16,7 @@ const MovieListComponent = ({ movies }) => {
         moviesData = movieHelpers.getMoviesList(movies.results);
     }
     let movieColumns = moviesData ? moviesData.map((movie, idx) => (
-        <Col xs="3" key={idx} style={styles.grid} >
+        <Col className="col-xs-2 col-md-3" key={idx} style={styles.grid} >
             <MovieCard movie={movie} />
         </Col>
     )) : null;
